@@ -1,5 +1,5 @@
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -18,7 +18,7 @@ app.post("/", function(req, res){
   const query = req.body.cityName;
 
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query+ "&units=metric&appid=263a5a686eefb0226ac016d63155d911"
-    https.get(url, function(response){
+    http.get(url, function(response){
     console.log(response.statusCode);
 
     response.on("data", function(data){
